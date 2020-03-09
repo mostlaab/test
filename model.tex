@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz,pgfplots,tkz-tab}
+\usetikzlibrary{calc,through,intersections,shapes,backgrounds,shadows}
+ %%%%Intervalles------------
+\newcommand{\intf}[2]{\left[ #1\, ; #2 \right]}\newcommand{\into}[2]{\left] #1\, ; #2 \right[}
+\newcommand{\intfo}[2]{\left[ #1\, ; #2 \right[}\newcommand{\intof}[2]{\left] #1\, ; #2 \right]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% placer à une distance #1 quelquechose #2 du curseur ==== encercler #1 %%%%%%%%%%%%%%%
+\newcommand*\circled[1]{%commande independante des autres : encercler #1
+	\tikz[baseline=(char.base)]{%
+		\node[shape=circle,fill=white,draw,inner sep=1pt,opacity=1] (char) {#1};%rotate=90
+	}
+}
+\tikzstyle{every picture}+=[remember picture]%en mode d'ajout \tikzstyle{}+=[]
+\newcommand{\pts}[2]{%commande independante des autres : placer#2 avec distance #1 avant la position du curseur 
+	\tikz[overlay,anchor=base, baseline=(4.base),xshift=-#1cm] {\node[blue](4){\textbf{#2}};}
+}
+%%%%%%%%%%%%%%%
+\newcommand{\systnum}[6]{%#1 + #2 = #3\\#4 + #5 = #6
+	\LR{
+		$ (S): $
+		$ \left \{ 
+		\begin{array}{*{5}r}\vspace{.3cm}
+		#1x&+&#2y&=&#3 \text{\pts{-1}{\tiny\circled{1}}} \\
+		#4x&+&#5y&=&#6\text{\pts{-1}{\tiny\circled{2}}}
+		\end{array}
+		\right .$
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{polyglossia}
+%\setmainlanguage[numerals=maghrib]{arabic}
+\setdefaultlanguage[numerals=maghrib]{arabic}
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.3]{Amiri}
+\setotherlanguage{french}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\systnum{a}{b}{c}{d}{e}{f}	
+
+
+\end{document}
